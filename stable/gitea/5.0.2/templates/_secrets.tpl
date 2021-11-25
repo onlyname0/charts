@@ -33,11 +33,12 @@ stringData:
     {{- end }}
 
     [database]
-    DB_TYPE = postgres
-    HOST = {{ printf "%v-%v:%v" .Release.Name "postgresql" "5432" }}
-    NAME = {{ .Values.postgresql.postgresqlDatabase }}
-    PASSWD = {{ .Values.postgresql.postgresqlPassword }}
-    USER = {{ .Values.postgresql.postgresqlUsername }}
+    DB_TYPE = mariadb
+    HOST = {{ printf "%v-%v:%v" .Release.Name "mariadb" "3302" }}
+    NAME = {{ .Values.mariadb.auth.database }}
+    PASSWD = {{ .Values.mariadb.auth.password }}
+    USER = {{ .Values.mariadb.auth.username }}
+    ROOT_PASSWD = {{ .Values.mariadb.auth.rootPassword }}
     {{- range $catindex, $catvalue := .Values.customConfig }}
     {{- if eq $catvalue.name "database" }}
     {{- range $index, $value := $catvalue.keys }}
