@@ -132,7 +132,7 @@ questions:
                 description: "Testing"
 
   - variable: mariadb
-    group: "Database Configuration"
+    group: "App Configuration"
     label: "Database Configuration"
     schema:
       type: dict
@@ -181,6 +181,7 @@ questions:
                   default: 3306
                   editable: true
                   required: true
+
 
   - variable: customConfig
     group: "App Configuration"
